@@ -10,7 +10,7 @@ for i in range(1, n + 1):
     multiply *= i
     list.append(multiply)
     
-print(list)
+print('List 1 :', list)
 
 list2 = []
 
@@ -20,4 +20,4 @@ for i in range(1, n + 1):
         mult *= j
     list2.append(mult)
 
-print(list2)
+print('List 2 :', list2)
