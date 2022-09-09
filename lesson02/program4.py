@@ -1,21 +1,17 @@
 import time
 
-t = (time.time_ns() % 1000) % 256
+t = time.time_ns() // 1000
 
 def GetRandomNumber(a, b):
-    #return time.time_ns()
-    #return a + int((time.time() - int(time.time())) * (10 ** 10)) % (b - a)
     global t 
-    t = a + ((1664525 * t + 1013904223) % (2 ** 32)) % (b - a)
-    return t
+    t = (1664525 * t + 1013904223) % (2 ** 32)
+    return a + t % (b - a)
     
-#print(time.time_ns() ^ 1024)
-list = [GetRandomNumber(0,100) for i in range(100)]
+list_len = 25
+list = [GetRandomNumber(1, 50) for i in range(list_len)]
 print('Unsorted sequence of random numbers:')
 print(list)
+
 list.sort()
 print('Sorted sequence of random numbers:')
-print(list)
-
-# for i in range(100):
-#     print(GetRandomNumber(1,100))
+print(list) 
