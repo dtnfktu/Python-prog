@@ -4,7 +4,7 @@
 
 [Семинар 1](#lesson1)  
 [Семинар 2](#lesson2)  
-[Семинар 3](#lesson3)
+[Семинар 3](#lesson3)  
 [Семинар 4](#lesson4)
 
 ## <a id="lesson1"/> Задания с семинара 1 - папка lesson01
@@ -91,3 +91,4 @@ a = 1664525, c = 1013904223, m = 2 ^ 32
 Програмный код в файле [***program5.py***](https://github.com/dtnfktu/Python-prog/blob/master/lesson04/program5.py).  
 Для считывания текста (шифрованного, дешифрованного) используется функция *read_from_file(file_name : str)*. Запись текста в файл - функция *write_into_file(filename : str, txt : str)*.  
 Шифрование текста осуществляется функцией *encode_rle(txt : str)*, дешифрование - функцией *decode_rle(txt : str)*. Для разделения пар количество-символ используется символ '|'.
+[В начало](#texthead)  
