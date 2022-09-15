@@ -1,3 +1,10 @@
+def input_int() :
+    '''Ввод целого положительного числа'''
+    st = input('Enter integer positive number : ')
+    while not st.isdigit() or st == '0' :
+        st = input('Enter integer positive number : ')
+    return int(st)
+
 def prime_numbers(lim):
     ''' Возвращает список простых чисел от 2 до lim включительно'''
     nums = [i for i in range(3, lim + 1, 2)]
@@ -37,5 +44,5 @@ def list_of_multipliers(n):
 
     return res_list
 
-n = int(input('Введите целое положительное число : '))
-print('Данное число является произведением простых множителей : ', list_of_multipliers(n))
+n = input_int()
+print('Prime factors of a number : ', list_of_multipliers(n))
