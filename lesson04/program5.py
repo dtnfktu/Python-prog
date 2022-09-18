@@ -37,6 +37,7 @@ def encode_rle(txt : str) :
     return '|'.join(rle)
 
 def decode_rle(txt : str) :
+    '''Восстанавливает текст, сжатый по RLE'''
     symbols = txt.split('|')
     dectxt = ''
 

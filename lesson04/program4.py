@@ -11,9 +11,10 @@ def write_into_file(file_path : str, txt : str) :
         file.write(txt)
 
 def decrypt_text_from_file(filename : str) :
-    sk = input('Enter key : ')
+    '''Дешифрует текст из файла filename'''
+    sk = input('Enter encryption key : ')
     while not sk.isdigit() :
-        sk = input('Enter key')
+        sk = input('Enter encryption key')
     key = int(sk)
 
     with open(filename,'r') as sourcefile :
@@ -21,8 +22,9 @@ def decrypt_text_from_file(filename : str) :
 
     return encrypt_text(txt, -key)
 
-
 ttext = input('Enter text : ')
-enc_text = encrypt_text(ttext, 5)
+key = int(input('Enter key for encryption : '))
+enc_text = encrypt_text(ttext, key)
+print('Encrypted text', enc_text)
 write_into_file('caesar.txt', enc_text)
-print(decrypt_text_from_file('caesar.txt'))
+print('Decrypted text', decrypt_text_from_file('caesar.txt'))
