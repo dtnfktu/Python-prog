@@ -22,10 +22,10 @@ def filter_list(tuple_list : list) :
     return tuple_list
 
 
-langs = ['python', 'C#', 'Java', 'C++', 'JavaScript', 'Go', 'Perl', 'Pascal']
-nums = [i for i in range(1, len(langs) + 1)]
+langs = ['python', 'C#', 'Java', 'C++', 'JavaScript', 'Go', 'Perl', 'Pascal']   # Задаём список АЯП
+nums = [i for i in range(1, len(langs) + 1)]                                    # Задаём список номеров
 
 print('Source list')
-print(lists_zip(nums, langs))
+print(lists_zip(nums, langs))                       
 print('Resulting list')
 print(filter_list(lists_zip(nums, langs)))
