@@ -32,11 +32,15 @@ def human_step(player : str) :
 def machine_step(mode : int, player : str) :
     '''Очередной ход ИИ'''
     # для режима 1 - Stupid
-    # choice_num = 0
     
     if mode == 1 :
         choice_num = random.randint(1, (candy_in_one_turn if candy_in_one_turn < candies else candies))
-        print(player + ' choice => ' + str(choice_num))    
+    else :
+        if candies <= candy_in_one_turn :
+            choice_num = candy_in_one_turn
+        else :
+            choice_num = candy_in_one_turn + 1 - minus
+    print(player + ' choice => ' + str(choice_num))    
     
     return choice_num
 
@@ -51,10 +55,10 @@ if game_mode == 2 :
     player2 = 'Compukter'
     ai_mode = input_int('Select AI mode : 1 - Stupid, 2 - God', 1)
 
-# Задаём начальное количество конфет
+# Задаём начальное количество конфет, по умолчанию 2021
 candies = input_int('Enter the initial number of candies', 2021)
 
-# Максимальное количество конфет за один ход
+# Максимальное количество конфет за один ход, по умолчанию 28
 candy_in_one_turn = input_int('Enter max number of candies in one turn', 28)
 
 # Выбираем кто начинает
@@ -62,7 +66,7 @@ current_player = priority_selection()
 print('First step Player' + str(current_player))
 print('------------------------------------------------------')
 print('Let the Game begin!')
-
+minus = 0
 while candies > 0 :
     if current_player == 1 :
         minus = human_step(player1)
