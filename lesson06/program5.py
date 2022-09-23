@@ -1,10 +1,10 @@
 import random
 
+n = 9
 
-n = 10
-
-lst = [random.randint(1, 10) for i in range(10)]
+lst = [random.randint(1, 10) for i in range(n)]
 print(lst)
 
-mul = []
+mul = [lst[i] * lst[len(lst) - i - 1] for i in range(len(lst)//2)]
 
+print(mul)
