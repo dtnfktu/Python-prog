@@ -1,10 +1,13 @@
 num = input('Введите искомое число :')
-lst = ['Здесь нет','Здесь есть число 123','Здесь тоже 3214 есть','Здесь опять нету','456 А здесь есть 789']
+lst = ['Здесь нет','Здесь есть число 123','Здесь число 3214 есть','Здесь опять ничего нету','456 А здесь есть даже два 789']
 
-#print(list(map(str, [x for x in range(0,10)])))
+# Объединяем все строки в один текст, где элемент списка - слово
+lst = ('\n'.join(lst).replace('\n',' ')).split(' ')
 
-# for element in lst:
-#     res = sum(list(map(lambda x: x in list(map(str, [x for x in range(0,10)])), list(element))))
-#     print(res)
+# Ищем есть ли заданное число среди слов
+ans = list(filter(lambda x: x == num, lst))
+print(ans)
 
-print(num in '\n'.join(lst))
+# А здесь ищем пристуствуют ли вообще числа в тексте
+ans = list(filter(lambda x: x.isdigit(), lst))
+print(ans)
