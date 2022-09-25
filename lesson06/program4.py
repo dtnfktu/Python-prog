@@ -12,6 +12,7 @@ def print_answer(lst : list, substr : str) :
 
 # Для корректного отображения кириллицы в Windows
 os.system('chcp 65001')
+
 # Тесты из задания
 print_answer(["qwe", "asd", "zxc", "qwe", "ertqwe"], 'qwe')
 print_answer( ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"], 'йцу')

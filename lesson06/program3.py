@@ -1,5 +1,6 @@
 import operator
 
+# Вещественные числа можно вводить и с точкой и с запятой
 point1 = tuple(map(float, input('Координаты точки 1 через пробел : ').replace(',','.').split(" ")))
 point2 = tuple(map(float, input('Координаты точки 2 через пробел : ').replace(',','.').split(" ")))
 
