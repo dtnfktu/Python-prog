@@ -6,8 +6,9 @@ lst = ('\n'.join(lst).replace('\n',' ')).split(' ')
 
 # Ищем есть ли заданное число среди слов
 ans = list(filter(lambda x: x == num, lst))
-print(ans)
+
+print('Заданное число', 'присутствует' if ans else 'отсутствует')
 
 # А здесь ищем пристуствуют ли вообще числа в тексте
 ans = list(filter(lambda x: x.isdigit(), lst))
-print(ans)
+print('Число/числа в строках','есть' if ans else 'нет')
