@@ -1,5 +1,5 @@
 import telebot
-bot = telebot.TeleBot('5606269494:AAFngD9467jJo8nS8icVEdEYHAIGtoQPCBY')
+bot = telebot.TeleBot('')
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
@@ -13,5 +13,9 @@ def get_text_messages(message):
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 
+<<<<<<< HEAD
 
 bot.polling(none_stop=True, interval=0)
+=======
+bot.polling(none_stop=True, interval=0)
+>>>>>>> 9659208b693da5acfa5ebf5e1148913cee41fe1a
