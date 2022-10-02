@@ -1,4 +1,6 @@
 import json
+import datetime
+import os
 
 def loadcsv(fname : str) :
     '''Загрузка справочника из csv-файла'''
@@ -33,8 +35,6 @@ def exportjson(fname : str, gd : list) :
     with open(fname,'w') as recfile :
         json.dump(phonebook, recfile)
 
-
-
 def importcsv(fname : str) :
     '''Импорт контактов из указанного csv-файла'''
     lst = []
@@ -57,3 +57,12 @@ def importjson(fname : str) :
 
     return lst
    
+def makebackup() :
+    '''Создаёт backup файла phonebook.csv'''
+    now = str(datetime.datetime.now())
+    now = now[:now.find('.')]
+    now = now.replace('-','').replace(':','').replace(' ','_')
+    if os.path.exists('phonebook.csv') :
+        bckp = loadcsv('phonebook.csv')
+        exportcsv(now + '.backup',bckp)
+

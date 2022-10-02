@@ -39,7 +39,7 @@ def importdata() :
     fformat = input('Какой формат импортируемого файла? 1 - csv, 2 - json : ')
     fname = input('Имя файла : ')
     if fformat == '1' :
-        return dbfiles.importcsv(fname)
+        return dbfiles.loadcsv(fname)
     if fformat == '2' :
         return dbfiles.importjson(fname)
     
