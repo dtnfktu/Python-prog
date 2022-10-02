@@ -66,3 +66,32 @@ def makebackup() :
         bckp = loadcsv('phonebook.csv')
         exportcsv(now + '.backup',bckp)
 
+def logfile(oper : int) :
+    '''Запись действий в log'''
+    now = datetime.datetime.now()
+    with open('phonebook.log','a') as log :
+        if oper == -1 :
+            log.write(f'{now} - Справочник запущен\r')
+        elif oper == -2 :
+            log.write(f'{now} - Справочник по умолчанию загружен\r')
+        elif oper == -3 :
+            log.write(f'{now} - Справочник по умолчанию не загружен\r')
+        elif oper == 1 :
+            log.write(f'{now} - Добавлена запись\r')
+        elif oper == 2 :
+            log.write(f'{now} - Удалена запись\r')
+        elif oper == 3 :
+            log.write(f'{now} - Произведен поиск\r')
+        elif oper == 4 :
+            log.write(f'{now} - Редактирование записи\r')
+        elif oper == 5 :
+            log.write(f'{now} - Справочник экспортирован\r')
+        elif oper == 6 :
+            log.write(f'{now} - Справочник загружен\r')
+        elif oper == 0 :
+            log.write(f'{now} - Работа завершена\r')
+
+
+
+            
+    
