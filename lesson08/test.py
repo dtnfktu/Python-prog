@@ -1,3 +1,5 @@
+from base64 import encode
+from imp import reload
 import json
 import datetime
 
@@ -30,7 +32,18 @@ import datetime
 # print(list(d1.values()))
 #print(s.get('contact2'))
 
-now = str(datetime.datetime.now())
-now = now[:now.find('.')]
-now = now.replace('-','').replace(':','').replace(' ','_')
-print(now)
+# now = str(datetime.datetime.now())
+# now = now[:now.find('.')]
+# now = now.replace('-','').replace(':','').replace(' ','_')
+# print(now)
+
+import sys
+import os
+os.system('echo off')
+os.system('chcp 65001')
+print('Слово : ',end ='')
+input()
+os.system('chcp 1251')
+st = input()
+print(st)
+os.system('chcp 65001')

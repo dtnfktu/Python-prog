@@ -3,6 +3,10 @@ import dbfiles as fl
 import menu
 import os
 
+from sys import platform
+if 'win' in platform :
+    os.system('chcp 65001')
+
 fl.logfile(-1)
 if os.path.exists('phonebook.csv') :
     guide = fl.loadcsv('phonebook.csv')

@@ -18,6 +18,7 @@ def delrec() :
 def searchrec(ls : list) :
     '''Поиск записей по ключу'''
     skey = input('Фрагмент имени/фамилии : ').lower()
+    from sys import platform
     slist = list(filter(lambda x: skey in x[0].lower() or skey in x[1].lower(), ls))
     return slist
 

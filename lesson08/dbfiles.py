@@ -5,7 +5,7 @@ import os
 def loadcsv(fname : str) :
     '''Загрузка справочника из csv-файла'''
     outlist = []
-    with open(fname, 'r', ) as fcsv :
+    with open(fname, 'r', encoding='UTF-8') as fcsv :
         tmpread = fcsv.read().splitlines()
         for line in tmpread :
             outlist.append(tuple(line.split(';')))
@@ -13,7 +13,7 @@ def loadcsv(fname : str) :
 
 def exportcsv(fname: str, gd : list) :
     '''Записывет список в csv-файл'''
-    with open(fname, 'w') as recfile :
+    with open(fname, 'w', encoding='UTF-8') as recfile :
         for element in gd :
             recfile.write(';'.join(element) + '\r')
 
@@ -32,24 +32,15 @@ def exportjson(fname : str, gd : list) :
         phonebook['rec'+str(counter)] = cortege
         counter += 1
     # Теперь записываем всё в json
-    with open(fname,'w') as recfile :
+    with open(fname,'w', encoding='UTF-8') as recfile :
         json.dump(phonebook, recfile)
-
-def importcsv(fname : str) :
-    '''Импорт контактов из указанного csv-файла'''
-    lst = []
-    with open(fname,'r') as readfile :
-        temp_list = readfile.read().splitlines()
-    for abonent in temp_list :
-        lst.append(tuple(abonent.split(';')))
-    return lst
 
 def importjson(fname : str) :
     '''Импорт контактов из указанного JSON-файла'''
     lst = []
     # Читаем из json
-    with open(fname,'r') as readfile :
-        phonebook = json.load(readfile,)
+    with open(fname,'r',encoding='UTF-8') as readfile :
+        phonebook = json.load(readfile)
     tmplst = phonebook.values()
     
     for contact in tmplst :
