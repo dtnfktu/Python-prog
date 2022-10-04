@@ -1,0 +1,3 @@
+import candies
+
+candies.game()
