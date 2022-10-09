@@ -1,6 +1,8 @@
-import os
+#import os
 import random
-from turtle import clear
+import telebot
+#from turtle import clear
+bot = telebot.TeleBot('5606269494:AAFngD9467jJo8nS8icVEdEYHAIGtoQPCBY')
 
 def input_int(title  : str, default_value = None) :
     '''Вводим целое число'''
@@ -48,7 +50,7 @@ def machine_step(game : list) :
 def initgame(options : list) :
     '''Инициализация игры - ввод основных настроек'''
     #options[0] =  inputdata('Enter bot level (1 - Rookie, 2 - God)', int)
-    options[0] = input_int('Enter level')
+    options[0] = input_int('Enter level (1 - easy, 2 - hard)')
     options[1] =  inputdata('Enter Your name :', str)
     options[2] = player2 = 'Valera' if options[0] == 1 else 'Gennadiy Albertovich'
    
@@ -56,12 +58,24 @@ def nextplayer(cp : int) :
     '''Определяет какой игрок делатет очередной ход'''
     return 1 if cp == 2 else 2
 
+@bot.message_handler(content_types=['text'])
+def get_text_messages(message):
+    if message.text == "/start":
+        bot.send_message(message.from_user.id, "Привет, это калькулятор. Введи выражение")
+    elif message.text == "/help":
+        bot.send_message(message.from_user.id, "Напиши привет")
+    else:
+        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
+
+
+#def askbot(ask : str) -> str :
+
 def game() :
     '''Сама игра'''
-    opt = [1, 'player1', 'player2', 150, 14, 14]
+    opt = [1, 'player1', 'player2', 2021, 29, 14]
     initgame(opt)
         
-    print(opt)
+    #print(opt)
 
     candies = opt[3]
     oneturn = opt[4]
